@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +27,15 @@ SECRET_KEY = 'django-insecure-)awn^@f)g0_ad)vj)wnhv%5gcnv5qy*6--av_^b3%ih(z)_sk1
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Redirect to home after login
+LOGIN_REDIRECT_URL = '/'
+
+# Redirect to login if user is not authenticated
+LOGIN_URL = '/login/'
+
+# Redirect after logout
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Application definition
@@ -55,7 +65,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # Add your templates directory here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static'] # Tells Django where to look for static files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

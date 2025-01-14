@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title> <!-- Using the 'title' from context -->
+
+    <!-- Load the static tag library -->
+     {% load static %}
+     
+    <!-- Include css -->
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>{{ title }}</h1> <!-- Display the dynamic title -->
+    <p>{{ description }}</p> <!-- Display the dynamic description -->
+    <p>{{ paragraph }}</p> <!-- Display the dynamic paragraph -->
+
+    <h2>Socials</h2> <!-- Display the social links -->
+    <ul>
+        <li><a href="{{ social_links.facebook }}">Facebook</a></li>
+        <li><a href="{{ social_links.twitter }}">Twitter</a></li>
+        <li><a href="{{ social_links.instagram }}">Instagram</a></li>
+    </ul>
+    
+</body>
+</html>
